@@ -562,7 +562,7 @@ private function _getAcl()
         <p>Säg till dispatchern att exekvera en annan kontroller/action.</p>
         <pre><code class="php hljs">class PollController extends ControllerBase
 {
-        public function voteAction( $optionId )
+    public function voteAction( $optionId )
     {
         $option = PollsOptions::findFirst(
             "WHERE id=:id",
