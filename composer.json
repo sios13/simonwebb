@@ -1,0 +1,5 @@
+{
+    "require": {
+        "sios13/simox": "dev-master"
+    }
+}

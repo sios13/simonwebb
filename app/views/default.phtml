@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="sv-se">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css"> -->
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" type="text/css">
+        <?php echo $this->tag->stylesheetLink( "/css/normalize.css" ); ?>
+        <?php echo $this->tag->stylesheetLink( "/css/bootstrap.min.css" ); ?>
+        <?php echo $this->tag->stylesheetLink( "/css/highlightjs/vs2015.css" ); ?>
+        <?php echo $this->tag->stylesheetLink( "/css/style.css" ); ?>
+        <?php echo $this->tag->getTitle(); ?>
+    </head>
+
+    <body>
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="logo col-md-12">
+                        <?php echo $this->tag->linkTo( "/", "Simonwebb" ); ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <ul class="menu col-md-12">
+                        <li class="menu__item"><?php echo $this->tag->linkTo( "#minaprojekt", "Mina projekt", false ); ?></li>
+                        <li class="menu__item"><?php echo $this->tag->linkTo( "/", "Kontakt" ); ?></li>
+                        <li class="menu__item"><?php echo $this->tag->linkTo( "https://github.com/sios13", "Github", false ); ?></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <?php echo $this->flash->output(); ?>
+
+        <main class="main">
+            <?php echo $this->getContent(); ?>
+        </main>
+
+        <div class="projects container">
+            <h2 id="minaprojekt">Mina projekt</h2>
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <a class="project" href="<?php echo $this->url->get( "/project/webdesktop" ); ?>">
+                        <img class="project__image" src="<?php echo $this->url->get( "/images/webdesktop.png" ); ?>" alt="Web desktop">
+                        <div class="project__shadow">
+                            <h3 class="project__title">Web desktop</h3>
+                            <div class="project__text">
+                                <p>Skrivbordsapplikation skrivet i JavaScript.</p>
+                            </div>
+                        </div>
+                        <!--<a class="button button--yellow" href="<?php // echo $this->url->get( "/project/pwd" ); ?>">Läs mer</a>-->
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <a class="project" href="<?php echo $this->url->get( "/project/simox" ); ?>">
+                        <img class="project__image" src="<?php echo $this->url->get( "/images/simox.png" ); ?>" alt="Simox">
+                        <div class="project__shadow">
+                            <h3 class="project__title">Simox</h3>
+                            <div class="project__text">
+                                <p>Ett MVC webbramverk skrivet i PHP.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <a class="project" href="<?php echo $this->url->get( "/project/simoxbook" ); ?>">
+                        <img class="project__image" src="<?php echo $this->url->get( "/images/simoxbook.png" ); ?>" alt="Simoxbook">
+                        <div class="project__shadow">
+                            <h3 class="project__title">Simoxbook</h3>
+                            <div class="project__text">
+                                <p>Skapa en profil och delta i omröstningar.<br>Skapad med Simox.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <a class="project" href="<?php echo $this->url->get( "/project/konstochbruksglasforeningen" ); ?>">
+                        <img class="project__image" src="<?php echo $this->url->get( "/images/konstochbruksglasforeningen.png" ); ?>" alt="Konst- och Bruksglasföreningen">
+                        <div class="project__shadow">
+                            <h3 class="project__title">Konst- och Bruksglasföreningen</h3>
+                            <div class="project__text">
+                                <p>Konst- och Bruksglasföreningens webbplats.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <a class="project" href="<?php echo $this->url->get( "/project/rentalmovies" ); ?>">
+                        <img class="project__image" src="<?php echo $this->url->get( "/images/rentalmovies.png" ); ?>" alt="RentalMovies">
+                        <div class="project__shadow">
+                            <h3 class="project__title">RentalMovies</h3>
+                            <div class="project__text">
+                                <p>Bläddra bland filmer, hyr en film<br>och skapa din egna profil.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer container-fluid">
+            <div class="row">
+                <ul class="footer-menu col-md-12">
+                    <li class="footer-menu__item"><?php echo $this->tag->linkTo( "#minaprojekt", "Mina projekt", false ); ?></li>
+                    <li class="footer-menu__item"><?php echo $this->tag->linkTo( "/", "Kontakt" ); ?></li>
+                    <li class="footer-menu__item"><?php echo $this->tag->linkTo( "https://github.com/sios13", "Github", false ); ?></li>
+                </ul>
+                <p class="text-center col-md-12">
+                    <a href="mailto:simon2@live.se">simon2@live.se</a>
+                </p>
+            </div>
+        </footer>
+
+        <!-- jquery -->
+        <?php echo $this->tag->javascriptInclude( "http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js", false ); ?>
+        <!-- bootstrap -->
+        <?php echo $this->tag->javascriptInclude( "/js/bootstrap.min.js" ); ?>
+        <!-- highlight.js -->
+        <?php echo $this->tag->javascriptInclude( "/js/highlight.pack.js" ); ?>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>
