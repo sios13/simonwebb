@@ -1,18 +1,17 @@
-<div class="container">
+<div class="project container">
 <div class="row">
 
-<div class="col-md-12">
+<div class="project__header col-md-8 col-md-offset-2">
     <h1>RentalMovies</h1>
-    <p class="lead text-center">Bläddra bland filmer, hyr en film och skapa din egna profil.</p>
+    <p class="lead text-center">Bläddra bland filmer eller hyr en film.</p>
+    <p class="text-center"><?php echo $this->tag->linkTo( "https://github.com/sios13/rentalmovies", "RentalMovies på Github", false ); ?></p>
+    <p class="text-center"><?php echo $this->tag->linkTo( "http://www.rentalmovies.simonwebb.se/", "Demoversion av RentalMovies", false ); ?>.</p>
 </div>
 
 <div class="col-md-6 col-md-offset-3">
     <p>RentalMovies är en webbplats där besökare kan bläddra bland filmer, sortera filmer efter kategorier och "hyra" filmer.</p>
-    <p>RentalMovies är skapad som ett skolprojekt.</p>
-    <p>En demoversion av RentalMovies finns att se här <?php echo $this->tag->linkTo( "http://www.rentalmovies.simonwebb.se/", "http://www.rentalmovies.simonwebb.se/", false ); ?>.</p>
     <p>Testa gärna RentalMovies, skapa en användare, uppdatera din profil, hyr en film eller bläddra bland filmer.</p>
     <p>RentalMovies har ett administrationsverktyg som gör det möjligt att redigera och radera filmer. För att se hur administrationsverktyget fungerar går det att logga in som administratör "doe" med lösenord "doe" på demoversionen av RentalMovies.</p>
-    <p><?php echo $this->tag->linkTo( "https://github.com/sios13/rentalmovies", "RentalMovies på Github", false ); ?></p>
 </div>
 
 <div class="col-md-12">

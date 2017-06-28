@@ -1,3 +1,7 @@
-$( "nav .nav_list .nav_project_item" ).click(function() {
-    $( ".nav_project_list" ).slideToggle();
+$( ".burger" ).click(function() {
+    $( ".menu" ).slideToggle();
+});
+
+$( ".menu__item" ).click(function() {
+    $( ".menu" ).slideToggle();
 });
