@@ -1,5 +1,5 @@
 # simonwebb
 
-Simonwebb is my personal website.
+My website!
 
 Created with the Simox MVC framework.
