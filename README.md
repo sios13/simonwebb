@@ -2,4 +2,4 @@
 
 Simonwebb is my personal website.
 
-Created with the Simox MVC framwork.
+Created with the Simox MVC framework.

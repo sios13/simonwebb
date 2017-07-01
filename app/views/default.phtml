@@ -38,7 +38,7 @@
             <?php echo $this->getContent(); ?>
         </main>
 
-        <div class="project-boxs container">
+        <div class="projects container">
             <h2><span id="myprojects"></span>Mina projekt</h2>
             <div class="row">
                 <div class="col-md-4 col-sm-6">
@@ -81,7 +81,7 @@
                         <div class="project-box__shadow">
                             <h3 class="project-box__title">Konst- och Bruksglasföreningen</h3>
                             <div class="project-box__text">
-                                <p>Konst- och Bruksglasföreningens webbplats.</p>
+                                <p>Webbplats om konst och glasbruk.</p>
                             </div>
                         </div>
                     </a>
@@ -110,13 +110,10 @@
             </div>
         </footer>
 
-        <!-- jquery -->
-        <?php echo $this->tag->javascriptInclude( "http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js", false ); ?>
-        <!-- bootstrap -->
-        <?php echo $this->tag->javascriptInclude( "/js/bootstrap.min.js" ); ?>
         <!-- highlight.js -->
         <?php echo $this->tag->javascriptInclude( "/js/highlight.pack.js" ); ?>
         <script>hljs.initHighlightingOnLoad();</script>
+
         <!-- scripts -->
         <?php echo $this->tag->javascriptInclude( "/js/scripts.js" ); ?>
     </body>
