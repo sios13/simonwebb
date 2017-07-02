@@ -639,6 +639,9 @@ $di->set( "router", function() {
     </div>
 </div>
 
+<!-- simox-old-doc -->
+<div class="simox-old-doc">
+
 <h2>Dokumentation</h2>
 <p class="text-center"><b>Denna dokumentation är skriven till en äldre version av Simox och kan därför innehålla en del felaktigheter.</b></p>
 <p class="text-center">Dokumentationen är tänkt att ge en introduktion till Simox.</p>
@@ -1013,7 +1016,12 @@ public function indexAction()
 {
     $this->tag->setTitle( "Billiga hemsidor" );
 
-    $this->view->enableCache( array("key" => "index-cache", "lifetime" => 172800, "level" => 5) );
+    $this->view->enableCache( array(
+            "key" => "index-cache",
+            "lifetime" => 172800,
+            "level" => 5
+        )
+    );
 }
 </pre>
 <p>"key" anger vad den resulterade filen kommer att heta i cachen. Alla cachefiler sparas i mappen app/cache. Om du vill använda cache i flera actions bör din key vara unik, annars kommer två actions att dela på samma cachefil.</p>
@@ -1035,7 +1043,13 @@ public function loginAction()
 		$username = $this->request->getPost( "username" );
 		$password = $this->request->getPost( "password" );
 
-		$users = Users::find( "WHERE username=:username AND password=:password LIMIT 1", array("username" => $username, "password" => $password) );
+		$users = Users::find( 
+            "WHERE username=:username AND password=:password LIMIT 1",
+            array(
+                "username" => $username,
+                "password" => $password
+            )
+        );
 
 		$this->session->set( "user", array("username" => $username) );
 
@@ -1085,6 +1099,9 @@ $simox->set( "view", function() {
     return $view;
 } );
 </pre>
+
+</div>
+<!-- /simox-old-doc -->
 
 </div>
 </div>

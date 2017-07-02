@@ -1,19 +1,17 @@
 window.addEventListener("load", function() {
     // Make a copy of nav
-    let menu = document.querySelector(".menu").cloneNode(true);
-    menu.style.display = "none";
+    let burgerMenu = document.querySelector(".menu").cloneNode(true);
+    burgerMenu.classList.add("menu--burger");
 
-    document.querySelector(".menu").parentElement.appendChild(menu);
+    document.querySelector(".menu").parentElement.appendChild(burgerMenu);
 
     document.querySelector(".burger").addEventListener("click", function(event) {
-        menu.style.display = "block";
-    }.bind(this));
+        burgerMenu.classList.toggle("menu--burger-visible");
+    });
+
+    Array.from(burgerMenu.children).forEach(function(menuItem) {
+        menuItem.addEventListener("click", function(event) {
+            burgerMenu.classList.toggle("menu--burger-visible");
+        });
+    });
 });
-
-// $( ".burger" ).click(function() {
-//     $( ".menu" ).slideToggle();
-// });
-
-// $( ".menu__item" ).click(function() {
-//     $( ".menu" ).slideToggle();
-// });
