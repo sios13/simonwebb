@@ -21,7 +21,7 @@ pre {padding:0; margin:0; border:0; display:inline;}
 .figure {margin-top:20px; margin-bottom:20px;}
 .figure__figcaption {margin-top:7px; text-align:center; font-style:italic;}
 
-#myprojects, #contact {position:absolute; top:-80px;}
+#myprojects, #contact {position:absolute; top:-75px;}
 
 .header {
     position:fixed;
@@ -44,26 +44,7 @@ pre {padding:0; margin:0; border:0; display:inline;}
 .menu--burger-visible {display:none;}
 
 .burger {display:none; color:#eee; position:absolute; top:17px; right:20px; text-transform:uppercase; font-size:18px;}
-
-/*.burger-menu {display:none;}*/
-/*.burger-menu__item {color:blue;}*/
-/*.burger-menu--visible {display:none;}*/
-
-@media only screen and (max-width : 991px) {
-    .logo {text-align:left;}
-
-    .menu {display:none;}
-    .menu {text-align:center; line-height:36px;}
-    .menu__item {width:100%; margin-bottom:10px;}
-    .menu__item a {display:block;}
-
-    .menu--burger-visible {display:block;}
-
-    .burger {display:inline;}
-}
-/*@media only screen and (max-width : 575px) {
-    .logo {font-size:32px;}
-}*/
+.burger:hover {cursor:pointer;}
 
 .main {margin-top:60px; padding-top:30px; padding-bottom:40px; background-color:rgb(241,237,236);}
 .main h1:first-child {margin-top:0;}
@@ -92,6 +73,30 @@ pre {padding:0; margin:0; border:0; display:inline;}
 .footer-menu {text-align:center; margin-bottom:0;}
 .footer-menu__item {display:inline-block; margin:20px 10px; white-space:nowrap;}
 .footer-menu__item a {color:black;}
+
 @media only screen and (max-width : 768px) {
+    #myprojects, #contact {position:absolute; top:-55px;}
+
+    .logo {line-height:40px; font-size:22px;}
+
+    .menu {line-height:40px;}
+
+    .burger {top:8px;}
+
+    .main {margin-top:40px;}
+
     .footer-menu__item {display:block;}
+}
+
+@media only screen and (max-width : 991px) {
+    .logo {text-align:left;}
+
+    .menu {display:none; padding-bottom:10px;}
+    .menu {text-align:center; line-height:36px;}
+    .menu__item {width:100%; font-size:19px; margin:5px 0;}
+    .menu__item a {display:block; color:white; padding:5px 0;}
+
+    .menu--burger-visible {display:block;}
+
+    .burger {display:inline;}
 }

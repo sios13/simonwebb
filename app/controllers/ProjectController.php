@@ -12,6 +12,12 @@ class ProjectController extends Controller
         $this->view->setMainView( "default" );
     }
 
+    public function monstergameAction()
+    {
+        $this->tag->setTitle( "Monster game" );
+        $this->view->pick( "posts/monstergame" );
+    }
+
     public function webdesktopAction()
     {
         $this->tag->setTitle( "Web desktop" );

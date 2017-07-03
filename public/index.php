@@ -44,12 +44,12 @@ try {
     $di->set( "router", function() {
         $router = new Router();
         $router->addRoute( "/", "IndexController#indexAction" );
+        $router->addRoute( "/project/monstergame", "ProjectController#monstergameAction" );
         $router->addRoute( "/project/webdesktop", "ProjectController#webdesktopAction" );
-        $router->addRoute( "/project/simoxbook", "ProjectController#simoxbookAction" );
         $router->addRoute( "/project/simox", "ProjectController#simoxAction" );
+        $router->addRoute( "/project/simoxbook", "ProjectController#simoxbookAction" );
         $router->addRoute( "/project/konstochbruksglasforeningen", "ProjectController#konstochbruksglasforeningenAction" );
         $router->addRoute( "/project/rentalmovies", "ProjectController#rentalmoviesAction" );
-        $router->addRoute( "/project/simox/{param}/test", "IndexController#testAction" );
         //$router->addRoute( "/project/simox/{param}", function($param) {$this->view->setMainView("default"); echo "HEJ " . $param;} );
         return $router;
     } );
@@ -93,4 +93,4 @@ try {
     echo "SimoxException: ", $e->getMessage();
 }
 
-echo "Time to run: " . (microtime(true) - SIMOX_START);
+// echo "Time to run: " . (microtime(true) - SIMOX_START);
