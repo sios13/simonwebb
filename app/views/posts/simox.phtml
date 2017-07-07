@@ -10,7 +10,7 @@
 <div class="col-md-10 col-md-offset-1">
 
 <div class="simox-section row">
-    <h2>Kom igång med Simox</h2>
+    <h2>Introduktion</h2>
     <div class="col-md-6">
         <p>Simox skapades av mig som ett sätt att lära mig PHP och arkitekturmodellen MVC. All kod är skriven av mig.</p>
         <p>Simox skapades med inspiration från <a href="https://phalconphp.com/">Phalcon</a>.</p>
@@ -608,7 +608,10 @@ private function _getAcl()
             if ( $user->save() )
             {
                 $this->flash->success( "Ditt konto har registrerats!" );
-                $this->response->redirect( array("controller" => "session", "action" => "login") );
+                $this->response->redirect([
+                    "controller" => "session",
+                    "action" => "login"
+                ]);
             }
             else
             {
@@ -653,7 +656,7 @@ $di->set( "router", function() {
 <pre>
 use Simox\Url;
 
-// ..
+// ...
 
 $simox->set( "url", function() {
     $url = new Url();
@@ -666,7 +669,7 @@ $simox->set( "url", function() {
 <pre>
 use Simox\View;
 
-// ..
+// ...
 
 $simox->set( "view", function() {
     $view = new View();
@@ -678,7 +681,7 @@ $simox->set( "view", function() {
 <pre>
 use Simox\Database\Adapter\Sqlite as SqliteConnection;
 
-// ..
+// ...
 
 $simox->set( "database", function() {
     $connection = new SqliteConnection(array(
@@ -691,7 +694,7 @@ $simox->set( "database", function() {
 <pre>
 use Simox\Database\Adapter\Mysql as MysqlConnection;
 
-// ..
+// ...
 
 $simox->set( "database", function() {
     $connection = new MysqlConnection(array(
@@ -710,7 +713,7 @@ $simox->set( "database", function() {
 <pre>
 use Simox\Router;
 
-// ..
+// ...
 
 $simox->set( "router", function() {
     $router = new Router();
@@ -769,7 +772,7 @@ class IndexController extends Controller
 <pre>
 use Simox\View;
 
-// ..
+// ...
 
 $simox->set( "view", function() {
     $view = new View();
@@ -824,7 +827,7 @@ $this->view->disableLevel( array(
 <pre>
 use Simox\Database\Adapter\Mysql as MysqlConnection;
 
-// ..
+// ...
 
 $simox->set( "database", function() {
     $connection = new MysqlConnection(array(
@@ -841,7 +844,7 @@ $simox->set( "database", function() {
 <pre>
 use Simox\Database\Adapter\Sqlite as SqliteConnection;
 
-// ..
+// ...
 
 $simox->set( "database", function() {
     $connection = new SqliteConnection(array(
@@ -906,7 +909,7 @@ $user->save();
 <pre>
 use Simox\Dispatcher;
 
-// ..
+// ...
 
 $simox->set( "dispatcher", function() {
     $events_manager = new EventsManager();
@@ -1061,7 +1064,7 @@ public function loginAction()
 <pre>
 public function secretAction()
 {
-	// ..
+	// ...
 
 	if ( !$user )
 	{
@@ -1075,7 +1078,7 @@ public function secretAction()
 <pre>
 use Simox\Dispatcher;
 
-// ..
+// ...
 
 $simox->set( "dispatcher", function() {
     $dispatcher = new Dispatcher();
@@ -1089,7 +1092,7 @@ $simox->set( "dispatcher", function() {
 <pre>
 use Simox\View;
 
-// ..
+// ...
 
 $simox->set( "view", function() {
     $view = new View();

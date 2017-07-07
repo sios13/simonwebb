@@ -32,7 +32,7 @@ pre {padding:0; margin:0; border:0; display:inline;}
     z-index:1;
 }
 
-.logo {font-family:"Chelsea Market", cursive; font-size:34px; line-height:60px; text-align:center; text-transform:lowercase;}
+.logo {font-family:"Chelsea Market", cursive; font-size:30px; line-height:60px; text-align:center; text-transform:lowercase;}
 .logo a {text-decoration:none; color:white;}
 
 .menu {padding:0; text-align:right; margin-bottom:0; line-height:60px; width:100%;}
@@ -77,13 +77,13 @@ pre {padding:0; margin:0; border:0; display:inline;}
 @media only screen and (max-width : 768px) {
     #myprojects, #contact {position:absolute; top:-55px;}
 
-    .logo {line-height:40px; font-size:22px;}
+    .logo {line-height:50px; font-size:22px;}
 
-    .menu {line-height:40px;}
+    .menu {line-height:50px;}
 
-    .burger {top:8px;}
+    .burger {top:12px;}
 
-    .main {margin-top:40px;}
+    .main {margin-top:50px;}
 
     .footer-menu__item {display:block;}
 }

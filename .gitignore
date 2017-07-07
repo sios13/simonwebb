@@ -2,3 +2,4 @@
 /app/cache/
 /vendor
 composer.lock
+.vscode
