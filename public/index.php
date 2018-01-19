@@ -50,6 +50,7 @@ try {
         $router->addRoute( "/project/simoxbook", "ProjectController#simoxbookAction" );
         $router->addRoute( "/project/konstochbruksglasforeningen", "ProjectController#konstochbruksglasforeningenAction" );
         $router->addRoute( "/project/rentalmovies", "ProjectController#rentalmoviesAction" );
+        $router->addRoute( "/project/millegarden", "ProjectController#millegardenAction" );
         //$router->addRoute( "/project/simox/{param}", function($param) {$this->view->setMainView("default"); echo "HEJ " . $param;} );
         return $router;
     } );

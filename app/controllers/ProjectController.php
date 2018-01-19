@@ -24,10 +24,10 @@ class ProjectController extends Controller
         $this->view->pick( "posts/webdesktop" );
     }
 
-    public function simoxbookAction()
+    public function millegardenAction()
     {
-        $this->tag->setTitle( "Simoxbook" );
-        $this->view->pick( "posts/simoxbook" );
+        $this->tag->setTitle( "Millegården" );
+        $this->view->pick( "posts/millegarden" );
     }
 
     public function simoxAction()
@@ -44,6 +44,12 @@ class ProjectController extends Controller
         $this->view->pick( "posts/konstochbruksglasforeningen" );
     }
 
+    public function simoxbookAction()
+    {
+        $this->tag->setTitle( "Simoxbook" );
+        $this->view->pick( "posts/simoxbook" );
+    }
+    
     public function rentalmoviesAction()
     {
         $this->tag->setTitle( "RentalMovies" );
