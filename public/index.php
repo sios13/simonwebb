@@ -37,13 +37,15 @@ try {
 
     $di->set( "url", function() {
         $url = new Url();
-        $url->setUriPrefix( "/simonwebb" );
+        // $url->setUriPrefix( "/simonwebb" );
+        // $url->setUriPrefix( "/public" );
         return $url;
 	} );
 
     $di->set( "router", function() {
         $router = new Router();
         $router->addRoute( "/", "IndexController#indexAction" );
+        $router->addRoute( "/project/githubdashboard", "ProjectController#githubdashboardAction" );
         $router->addRoute( "/project/monstergame", "ProjectController#monstergameAction" );
         $router->addRoute( "/project/webdesktop", "ProjectController#webdesktopAction" );
         $router->addRoute( "/project/simox", "ProjectController#simoxAction" );

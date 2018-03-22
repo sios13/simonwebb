@@ -12,6 +12,12 @@ class ProjectController extends Controller
         $this->view->setMainView( "default" );
     }
 
+    public function githubdashboardAction()
+    {
+        $this->tag->setTitle( "Github Dashboard" );
+        $this->view->pick( "posts/githubdashboard" );
+    }
+
     public function monstergameAction()
     {
         $this->tag->setTitle( "Monster game" );

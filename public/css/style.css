@@ -4,13 +4,13 @@ body {
     font-family:"Noto Sans", sans-serif;
     font-size:18px;
     line-height:1.55em;
-    color:#333333;
+    color:#444444;
     background-color:white;
 }
 
 h1, h2, h3, h4 {position:relative; text-align:center; font-weight:normal;}
 
-h1 {font-size:32px;}
+h1 {font-size:20px; font-weight:bold; color:#222}
 h2 {font-size:26px;}
 h3 {font-size:19px;}
 h4 {font-size:15px;}
@@ -47,16 +47,16 @@ a[href^="https://"]:after {content:url("../images/Icon_External_Link.png"); marg
 .main {margin-top:50px; padding-top:20px; padding-bottom:20px; background-color:rgb(250,250,250);}
 .main h1:first-child {margin-top:0;}
 
-.intro {font-size:20px;}
+.intro {}
 .intro p {margin:20px 0;}
 
 .projects {padding-top:20px; padding-bottom:25px; background-color:rgb(241,237,236);}
 
-.project-box {overflow:hidden; float:left; position:relative; width:100%; margin-top:15px; margin-bottom:15px; color:#fff; text-align:center; box-shadow:0px 0px 5px 0px rgba(0,0,0,0.2);}
+.project-box {overflow:hidden; float:left; position:relative; width:100%; margin-top:15px; margin-bottom:15px; color:rgba(255,255,255,0.85); text-align:center; box-shadow:0px 0px 5px 0px rgba(0,0,0,0.2);}
 .project-box__image {width:100%; transition:transform .2s; display:inline-block;}
 .project-box__shadow {position:absolute; bottom:0; left:0; width:100%; height:80px; background-color:rgba(0,0,0,0.55); transition:all 0.2s;}
-.project-box__title {font-size:21px; width:100%;}
-.project-box__text {font-size:16px; opacity:0; transition:opacity .2s; width:100%;}
+.project-box__title {font-size:18px; width:100%;}
+.project-box__text {font-size:16px; color:rgba(255,255,255,0.65); opacity:0; transition:opacity .2s; width:100%;}
 
 .project-box:hover .project-box__image {transform:scale(1.035);}
 .project-box:hover .project-box__shadow {height:105px; background-color:rgba(0,0,0,0.7); color:#fff;}
@@ -67,13 +67,13 @@ a[href^="https://"]:after {content:url("../images/Icon_External_Link.png"); marg
 .simox-old-doc {overflow:auto;}
 
 .project {}
-.project__header {font-size:20px; text-align:center; margin-top:20px; margin-bottom:20px;}
-.project__header p {color:#666; margin:20px 0;}
+.project__header {text-align:center; margin-top:20px; margin-bottom:20px;}
+.project__header p {color:rgba(0,0,0,0.65); margin:20px 0;}
 
-.contact {font-size:20px; background-color:rgb(250,250,250); padding-top:20px; padding-bottom:20px;}
+.contact {background-color:rgb(250,250,250); padding-top:20px; padding-bottom:20px;}
 .contact p {margin:20px 0;}
 
-.footer {background-color:rgb(241,237,236); font-size:15px; color:#777; padding:30px 0;}
+.footer {background-color:rgb(241,237,236); font-size:15px; color:rgba(0,0,0,0.65); padding:30px 0;}
 
 @media only screen and (max-width : 768px) {
     #myprojects, #contact {position:absolute; top:-55px;}
