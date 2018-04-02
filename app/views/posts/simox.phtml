@@ -7,26 +7,26 @@
     <p><?php echo $this->tag->linkTo( "https://github.com/sios13/simox", "Simox på Github", false ); ?></p>
 </div>
 
-<div class="col-md-10 col-md-offset-1">
+<div class="col-md-12">
 
 <div class="simox-section row">
-    <h2>Introduktion</h2>
     <div class="col-md-6">
+        <h2 class="simox-section__title">Komma igång</h2>
         <p>Simox skapades av mig som ett sätt att lära mig PHP och arkitekturmodellen MVC. All kod är skriven av mig.</p>
         <p>Simox skapades med inspiration från <?php echo $this->tag->linkTo( "https://phalconphp.com/", "Phalcon", false ); ?>.</p>
         <p>För att se ett exempel på hur Simox fungerar i en webbsida, klona <a href="<?php echo $this->url->get("/project/simoxbook"); ?>">Simoxbook</a> från Github.</p>
     </div>
     <div class="col-md-6">
-        <p>Klona <a href="<?php echo $this->url->get("/project/simoxbook"); ?>">Simoxbook</a> från Github:</p>
+        <p>Klona <a href="<?php echo $this->url->get("/project/simoxbook"); ?>">Simoxbook</a> från Github.</p>
         <pre><code class="hljs nohighlight">git clone https://github.com/sios13/simoxbook.git</code></pre>
-        <p>Installera:</p>
+        <p>Installera med composer.</p>
         <pre><code class="hljs nohighlight">composer install</code></pre>
     </div>
 </div>
 
 <div class="simox-section row">
-    <h2>MVC</h2>
     <div class="col-md-6">
+        <h2 class="simox-section__title">Model-View-Controller</h2>
         <p>Simox använder arkitekturmodellen <i>MVC</i>.</p>
     </div>
     <div class="col-md-6">
@@ -43,8 +43,8 @@
 </div>
 
 <div class="simox-section row">
-    <h2>Dependency Injection</h2>
     <div class="col-md-6">
+        <h2 class="simox-section__title">Komponenter och Dependency Injection</h2>
         <p>Simox är uppbyggt av flera <i>komponenter</i>.</p>
         <p>Injicera de komponenter du vill använda och ha tillgång till dem överallt i Simox.</p>
         <p>Komponenter instanseras bara när de används.</p>
@@ -71,23 +71,23 @@ $di->set( "database", function() {
 </div>
 
 <div class="simox-section row">
-    <h2>Models</h2>
     <div class="col-md-6">
-        <p>Skapa modeller av data.</p>
+        <h2 class="simox-section__title">Modeller</h2>
+        <p>Skapa datamodeller.</p>
+        <p>Använd modeller för att manipulera data och spara data i en databas.</p>
+    </div>
+    <div class="col-md-6">
         <pre><code class="hljs">&lt;?php
 
 use Simox\Model;
 
-class Users extends Model
+class Animals extends Model
 {
     public $id;
-    public $username;
-    public $password;
-    public $date;
+    public $name;
+    public $color;
+    public $created_at;
 }</code></pre>
-    </div>
-    <div class="col-md-6">
-        <p>Använd modeller och spara data i en databas.</p>
         <pre><code class="hljs">$yellow_animals = Animals::find(
     "WHERE color=:color ORDER BY size DESC",
     array(
@@ -102,9 +102,14 @@ $blue_animal->save();</code></pre>
 </div>
 
 <div class="simox-section row">
-    <h2>Views</h2>
     <div class="col-md-6">
+        <h2 class="simox-section__title">Vyer</h2>
         <p>Presentera data i vyer.</p>
+        <!-- <p>Exemepl på en "basvy".</p> -->
+        <p>I Simox finns fem vy-nivåer. Vy-nivåerna renderas i följande ordning:</p>
+        <p>Main view -> Before Controller view -> Controller view -> After Controller view -> Action view</p>
+    </div>
+    <div class="col-md-6">
         <pre><code class="hljs">&lt;h1>&lt;?php echo $this->poll->question; ?>&lt;/h1>
 
 &lt;table>
@@ -121,9 +126,22 @@ $blue_animal->save();</code></pre>
 &lt;?php echo $this->tag->linkTo( "poll/add/" . $this->poll->id, "Lägg till alternativ" ); ?> -
 &lt;?php echo $this->tag->linkTo( "poll", "Gå tillbaka" ); ?>
 &lt;/p></code></pre>
+        <pre><code class="hljs">/**
+ * Sets the 'main view'
+ */
+$this->view->setMainView( "default" );
+
+/**
+ * Sets the 'controller view'
+ */
+$this->view->setViewLevel( "CONTROLLER_VIEW", "awesome_controller_views/cool" );
+
+/**
+ * Sets the 'action view'
+ */
+$this->view->pick( "posts/index" );</code></pre>
     </div>
-    <div class="col-md-6">
-        <p>Exemepl på en "basvy".</p>
+    <!-- <div class="col-md-12">
         <pre><code class="hljs">&lt;!DOCTYPE html>
 &lt;html lang="sv-se">
     &lt;head>
@@ -154,31 +172,33 @@ $blue_animal->save();</code></pre>
     &lt;/body>
 &lt;/html>
         </code></pre>
-    </div>
-    <div class="col-md-6">
-        <p>I Simox finns fem vy-nivåer. Vy-nivåerna renderas i följande ordning:</p>
-        <p>Main view -> Before Controller view -> Controller view -> After Controller view -> Action view</p>
-        <pre><code class="hljs">/**
- * Sets the 'main view'
- */
-$this->view->setMainView( "default" );
-
-/**
- * Sets the 'controller view'
- */
-$this->view->setViewLevel( "CONTROLLER_VIEW", "awesome_controller_views/cool" );
-
-/**
- * Sets the 'action view'
- */
-$this->view->pick( "posts/index" );</code></pre>
-    </div>
+    </div> -->
 </div>
 
 <div class="simox-section row">
-    <h2>Controllers</h2>
     <div class="col-md-6">
-        <p>Styr logiken i "controllers".</p>
+        <h2 class="simox-section__title">Controllers</h2>
+        <p>Styr flödet och logiken i din applikation med "controllers".</p>
+        <p>Ta emot parametrar i en action.</p>
+    </div>
+    <!-- <div class="col-md-6">
+        <p>ControllerBase:</p>
+        <pre><code class="hljs">&lt;?php
+
+use Simox\Controller;
+
+class ControllerBase extends Controller
+{
+    public function initialize()
+    {
+        $this->tag->prependTitle( " - " );
+        $this->tag->appendTitle( "Fin webbplats" );
+
+        $this->view->setMainView( "default" );
+    }
+}</code></pre>
+    </div> -->
+    <div class="col-md-6">
         <pre><code class="hljs">&lt;?php
 
 class UserController extends ControllerBase
@@ -199,27 +219,7 @@ class UserController extends ControllerBase
 
         $this->view->user = $user;
     }
-}</code></pre>
-    </div>
-    <div class="col-md-6">
-        <p>ControllerBase:</p>
-        <pre><code class="hljs">&lt;?php
-
-use Simox\Controller;
-
-class ControllerBase extends Controller
-{
-    public function initialize()
-    {
-        $this->tag->prependTitle( " - " );
-        $this->tag->appendTitle( "Fin webbplats" );
-
-        $this->view->setMainView( "default" );
-    }
-}</code></pre>
-    </div>
-    <div class="col-md-6">
-        <p>Ta emot parametrar i en action.</p>
+        }</code></pre>
         <pre><code class="php hljs">use Simox\Controller;
 
 // ...
@@ -237,9 +237,11 @@ public function showAction( $userId )
 </div>
 
 <div class="simox-section row">
-    <h2>Databaser</h2>
     <div class="col-md-6">
-        <p>Koppla till en databas med MySQL.</p>
+        <h2 class="simox-section__title">Databaser</h2>
+        <p>Koppla din applikation till en databas med olika databas-adaptrar.</p>
+    </div>
+    <div class="col-md-6">
         <pre><code class="hljs">use Simox\Database\Adapter\Mysql as MysqlConnection;
 
 // ...
@@ -253,9 +255,6 @@ $di->set( "database", function() {
     ) );
     return $connection;
 } );</code></pre>
-    </div>
-    <div class="col-md-6">
-        <p>SQLite:</p>
         <pre><code class="hljs">use Simox\Database\Adapter\Sqlite as SqliteConnection;
 
 // ...
@@ -270,9 +269,11 @@ $di->set( "database", function() {
 </div>
 
 <div class="simox-section row">
-    <h2>Routes</h2>
     <div class="col-md-6">
+        <h2 class="simox-section__title">Routes</h2>
         <p>Använd router-komponenten för att lägga till "routes".</p>
+    </div>
+    <div class="col-md-6">
         <pre><code class="php hljs">use Simox\Router;
 
 // ...
@@ -283,9 +284,6 @@ $di->set( "router", function() {
     $router->addRoute( "/contact", "ContactController#indexAction" );
     return $router;
 } );</code></pre>
-    </div>
-    <div class="col-md-6">
-        <p>Skicka parametrar till en action.</p>
         <pre><code class="php hljs">use Simox\Router;
 
 // ...
@@ -299,9 +297,11 @@ $di->set( "router", function() {
 </div>
 
 <div class="simox-section row">
-    <h2>Flashmeddelanden</h2>
     <div class="col-md-6">
-        <p>Skapa flashmeddelanden.</p>
+        <h2 class="simox-section__title">Flashmeddelanden</h2>
+        <p>Skapa flashmeddelanden och skriv ut flashmeddelanden i vyer.</p>
+    </div>
+    <div class="col-md-6">
         <pre><code class="php hljs">&lt;?php
 
 class SessionController extends ControllerBase
@@ -331,9 +331,6 @@ class SessionController extends ControllerBase
         }
     }
 }</code></pre>
-    </div>
-    <div class="col-md-6">
-        <p>Skriv ut flashmeddelanden i vyn.</p>
         <pre><code class="php hljs">&lt;!DOCTYPE html>
 &lt;html lang="sv-se">
     &lt;head>
@@ -356,9 +353,12 @@ class SessionController extends ControllerBase
 </div>
 
 <div class="simox-section row">
-    <h2>Plugins och events</h2>
     <div class="col-md-6">
+        <h2 class="simox-section__title">Plugins och events</h2>
         <p>Skapa plugins.</p>
+        <p>Bifoga plugins/events till lyssnare eller använd ett plugin från tredje part.</p>
+    </div>
+    <div class="col-md-6">
         <pre><code class="php hljs">use Simox\Plugin;
 use Simox\Dispatcher;
 use Simox\Acl as AclList;
@@ -397,10 +397,7 @@ class SecurityPlugin extends Plugin
         }
     }
 }
-</code></pre>
-    </div>
-    <div class="col-md-6">
-        <p>Bifoga plugins eller events till lyssnare.</p>
+        </code></pre>
         <pre><code class="php hljs">use Simox\Dispatcher;
 use Simox\Events\Manager as EventsManager;
 
@@ -435,9 +432,6 @@ $di->set( "dispatcher", function() {
 
     return $dispatcher;
 } );</code></pre>
-    </div>
-    <div class="col-md-12">
-        <p>Använd plugins från tredje part.</p>
         <pre><code class="php hljs">use Simox\View;
 use Simox\Events\Manager as EventsManager;
 
@@ -462,8 +456,8 @@ $di->set( "view", function() {
 </div>
 
 <div class="simox-section row">
-    <h2>Cache</h2>
     <div class="col-md-6">
+        <h2 class="simox-section__title">Cache</h2>
         <p>Spara vyfragment i cache.</p>
         <p><i>Key</i> anger namnet på den resulterande cachefilen.</p>
         <p><i>Lifetime</i> anger i sekunder hur länge cachen kommer att leva.</p>
@@ -496,9 +490,11 @@ $di->set( "view", function() {
 </div>
 
 <div class="simox-section row">
-    <h2>ACL</h2>
-    <div class="col-md-12">
-        <p>Skapa en <i>Access Control List</i> för att hantera roller och privilegier.</p>
+    <div class="col-md-6">
+        <h2 class="simox-section__title">Access Control List</h2>
+        <p>Skapa en <i>ACL</i> för att hantera roller och privilegier.</p>
+    </div>
+    <div class="col-md-6">
         <pre><code class="php hljs">// ...
 
 private function _getAcl()
@@ -556,16 +552,11 @@ private function _getAcl()
 
 // ...</code></pre>
     </div>
-    <!--<div class="col-md-6">
-        <p></p>
-        <pre><code class="php hljs"></code></pre>
-    </div>-->
 </div>
 
 <div class="simox-section row">
-    <h2>Och mer!</h2>
     <div class="col-md-6">
-        <h3>Forward</h3>
+        <h2 class="simox-section__title">Forward</h2>
         <p>Säg till dispatchern att exekvera en annan kontroller/action.</p>
         <pre><code class="php hljs">class PollController extends ControllerBase
 {
@@ -589,7 +580,7 @@ private function _getAcl()
 }</code></pre>
     </div>
     <div class="col-md-6">
-        <h3>Redirect</h3>
+        <h2 class="simox-section__title">Redirect</h2>
         <!--<p></p>-->
         <pre><code class="php hljs">class SessionController extends ControllerBase
 {
@@ -622,7 +613,7 @@ private function _getAcl()
 }</code></pre>
     </div>
     <div class="col-md-6">
-        <h3>404 Not found</h3>
+        <h2 class="simox-section__title">404 Not found</h2>
         <p>Välj en route som exekveras om ingen annan route körs.</p>
         <p>Liknande funktionalitet går att uppnå genom att använda plugins och events som jag har visat längre upp på denna sida.</p>
         <pre><code class="php hljs">use Simox\Router;
